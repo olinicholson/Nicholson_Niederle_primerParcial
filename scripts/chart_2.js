@@ -3,7 +3,7 @@
 // })
 
 /* Agregamos al DOM la visualización chartMap */
-d3.dsv(";",'../VersionNueva/datos/147_vehiculos_mal_estacionados_aux3.csv', d3.autoType).then(data => {
+d3.dsv(";",'../datos/147_vehiculos_mal_estacionados_aux3.csv', d3.autoType).then(data => {
   console.log(data)
   // filtramos los barrios necesarios
   let data_aux = data.filter( item => 

@@ -22,28 +22,12 @@ p{
     font-size: 1.2em;
     margin: 0.5em;
 }
-#chart_1 svg, #chart_2 svg, #chart_3 svg {
+#chartMap_1 svg, #chart_2 svg, #chart_3 svg {
     max-width: initial;
     margin-top: 3em;
     margin-bottom: 3em;
 }
 
-/* Primary Colors */
-:root {
-    --primary-color: #1D3557;
-    --secondary-color: #E63946;
-    --background-color: #f9f4dd;
-    --text-color: #2B2D42;
-  }
-  
-  /* Secondary Colors */
-  :root {
-    --accent-color: #FF9F1C;
-    --success-color: #06D6A0;
-    --warning-color: #F0C808;
-    --danger-color: #EF476F;
-  }
-  
   /* Body Styles */
   body {
     background-color: var(--background-color);
@@ -56,7 +40,7 @@ p{
   }
 
   header {
-    background-color: #fdc732; /* change the background color */
+    background-color: #fdd306; /* change the background color */
     color: #212529; /* change the font color */
     margin:0px;
   }
@@ -72,6 +56,20 @@ p{
     width: 100%;
     margin: auto;
     margin-bottom: 500px;
+    display: flex;
+    justify-content: space-between;
+
+  }
+  #chart_1 {
+    display: flex;
+    justify-content: space-between;
+  }
+  #mapa1, #mapa2 {
+    width: 45%;
+  }
+
+  #mapa2 {
+    margin-top:45px;
   }
 
   .chart{
@@ -82,11 +80,9 @@ p{
   }
   
   
-
-  
   footer {
     background-color: #212529; /* change the background color */
-    color: #FDC832; /* change the font color */
+    color: #fdd306; /* change the font color */
   }
   
   footer p {
