@@ -89,12 +89,3 @@ p{
     margin: 5px;
   }
   
-  /* Links Styles */
-  a {
-    color: var(--primary-color);
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
