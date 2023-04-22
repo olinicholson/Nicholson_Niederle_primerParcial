@@ -24,6 +24,7 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
   })
 
 
+
   /* Mapa Barrios */
   let chartMap1 = Plot.plot({
     // https://github.com/observablehq/plot#projection-options
@@ -53,7 +54,8 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
           stroke: "white",
           textAnchor: "center",
           dx: 4,
-          filter: (d) => d.properties.DENUNCIAS > 700
+          filter: (d) => (d.properties.DENUNCIAS > 1000 ),
+          
         })
       )
     ],
@@ -69,7 +71,8 @@ const dataFetch = d3.dsv(';', 'datos/147_vehiculos_mal_estacionados.csv', d3.aut
 
 Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
   
-  /* Mapa Coroplético */
+  /* Mapa densidad */
+  
   let chartMap2 = Plot.plot({
     // https://github.com/observablehq/plot#projection-options
     projection: {
@@ -80,12 +83,14 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
       scheme: 'ylorbr',
     },
     marks: [
-      Plot.density(data, { x: 'lon', y: 'lat', fill: 'density',bandwidth: 15, thresholds: 30 }),
       Plot.geo(barrios, {
+        fill: d => d.properties.DENUNCIAS,
         stroke: 'gray',
         title: d => `${d.properties.BARRIO}\n${d.properties.DENUNCIAS} denuncias`,
       }),
+   
     ],
+    
   })
   
 

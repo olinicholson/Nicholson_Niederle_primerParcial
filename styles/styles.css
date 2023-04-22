@@ -1,17 +1,23 @@
 *{
     font-family:Verdana, Geneva, Tahoma, sans-serif
 }
-section{
+header {
+  background-color: #fdd306; /* change the background color */
+  color: #212529; /* change the font color */
+  margin:0px;
+}
+main{
     margin-left: 10%;
     margin-right: 10%;
-    text-align: center;
+    text-align: justify;
+
 }
 h1{
     font-size: 3em;
     margin: 0.5em;
 }
 h2{
-    font-size: 2em;
+    font-size: 1.8em;
     margin: 0.5em 0 0.5em 0;
 }
 h3{
@@ -26,30 +32,17 @@ p{
     max-width: initial;
     margin-top: 3em;
     margin-bottom: 3em;
+    margin-left: 20px;
 }
 
-  /* Body Styles */
   body {
-    background-color: var(--background-color);
-    color: var(--text-color);
     font-family: Arial, sans-serif;
     font-size: 16px;
     line-height: 1.5;
-    margin: 50px;
     padding: auto;
   }
 
-  header {
-    background-color: #fdd306; /* change the background color */
-    color: #212529; /* change the font color */
-    margin:0px;
-  }
-  
-  /* Section Styles */
-  section {
-    margin: 100px;
-  }
-  
+
   /* Chart Styles */
   .chartMap1{
     height: 300px;
@@ -78,7 +71,6 @@ p{
     margin: auto;
     margin-bottom: 250px;
   }
-  
   
   footer {
     background-color: #212529; /* change the background color */
