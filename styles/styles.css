@@ -1,0 +1,104 @@
+*{
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+section{
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+}
+h1{
+    font-size: 3em;
+    margin: 0.5em;
+}
+h2{
+    font-size: 2em;
+    margin: 0.5em 0 0.5em 0;
+}
+h3{
+    font-size: 1.8em;
+    margin: 2em 0 0.5em 0.5em;
+}
+p{
+    font-size: 1.2em;
+    margin: 0.5em;
+}
+#chart_1 svg, #chart_2 svg, #chart_3 svg {
+    max-width: initial;
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+/* Primary Colors */
+:root {
+    --primary-color: #1D3557;
+    --secondary-color: #E63946;
+    --background-color: #f9f4dd;
+    --text-color: #2B2D42;
+  }
+  
+  /* Secondary Colors */
+  :root {
+    --accent-color: #FF9F1C;
+    --success-color: #06D6A0;
+    --warning-color: #F0C808;
+    --danger-color: #EF476F;
+  }
+  
+  /* Body Styles */
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 50px;
+    padding: auto;
+  }
+
+  header {
+    background-color: #fdc732; /* change the background color */
+    color: #212529; /* change the font color */
+    margin:0px;
+  }
+  
+  /* Section Styles */
+  section {
+    margin: 100px;
+  }
+  
+  /* Chart Styles */
+  .chartMap1{
+    height: 300px;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 500px;
+  }
+
+  .chart{
+    height: 300px;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 250px;
+  }
+  
+  
+
+  
+  footer {
+    background-color: #212529; /* change the background color */
+    color: #FDC832; /* change the font color */
+  }
+  
+  footer p {
+    margin: 5px;
+  }
+  
+  /* Links Styles */
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
