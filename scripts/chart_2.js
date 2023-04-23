@@ -8,8 +8,7 @@ d3.dsv(";",'../datos/147_vehiculos_mal_estacionados_aux3.csv', d3.autoType).then
   // filtramos los barrios necesarios
   let data_aux = data.filter( item => 
     item.domicilio_barrio == 'VILLA SOLDATI' || 
-    item.domicilio_barrio == 'PALERMO' || 
-    item.domicilio_barrio == 'VILLA URQUIZA')
+    item.domicilio_barrio == 'PALERMO' )
   let chart = Plot.plot({
     marks: [
       Plot.line(data_aux, 

@@ -83,16 +83,14 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
       scheme: 'ylorbr',
     },
     marks: [
+      Plot.density(data, { x: 'lon', y: 'lat', fill: 'density',bandwidth: 15, thresholds: 30 }),
       Plot.geo(barrios, {
-        fill: d => d.properties.DENUNCIAS,
         stroke: 'gray',
         title: d => `${d.properties.BARRIO}\n${d.properties.DENUNCIAS} denuncias`,
       }),
-   
     ],
-    
   })
-  
+
 
   /* Agregamos al DOM la visualización chartMap */
   d3.select('#mapa2').append(() => chartMap2)
