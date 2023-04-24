@@ -1,7 +1,7 @@
 const mapa3Fetch = d3.json('../datos/callesPalermo.geojson')
-const dataFetch = d3.dsv(';', '../datos/147_vehiculos_mal_estacionados_aux3.csv', d3.autoType)
+const dataFetch3 = d3.dsv(';', '../datos/147_vehiculos_mal_estacionados_aux3.csv', d3.autoType)
 
-Promise.all([mapa3Fetch, dataFetch]).then(([barrios, data]) => {
+Promise.all([mapa3Fetch, dataFetch3]).then(([barrios, data]) => {
   
   const reclamosPorBarrio = d3.group(data, d => d.domicilio_barrio) // crea un Map
   console.log('reclamosPorBarrio', reclamosPorBarrio)
