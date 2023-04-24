@@ -54,7 +54,7 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
           stroke: "white",
           textAnchor: "center",
           dx: 4,
-          filter: (d) => (d.properties.DENUNCIAS > 1000 ),
+          filter: (d) => (d.properties.DENUNCIAS > 1000 ||d.properties.DENUNCIAS == 516 ),
           
         })
       )

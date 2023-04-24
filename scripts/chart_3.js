@@ -1,7 +1,7 @@
-const mapaFetch = d3.json('../datos/callesPalermo.geojson')
+const mapa3Fetch = d3.json('../datos/callesPalermo.geojson')
 const dataFetch = d3.dsv(';', '../datos/147_vehiculos_mal_estacionados_aux3.csv', d3.autoType)
 
-Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
+Promise.all([mapa3Fetch, dataFetch]).then(([barrios, data]) => {
   
   const reclamosPorBarrio = d3.group(data, d => d.domicilio_barrio) // crea un Map
   console.log('reclamosPorBarrio', reclamosPorBarrio)
@@ -23,7 +23,7 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
     item.hora_ingreso_aux == '16' || 
     item.domicilio_barrio == 'PALERMO')
 
-  let chartMap = Plot.plot({
+  let chartMap3 = Plot.plot({
     // https://github.com/observablehq/plot#projection-options
     projection: {
       type: 'mercator',
@@ -50,7 +50,7 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
   })
 
   /* Agregamos al DOM la visualización chartMap */
-  d3.select('#chart_3').append(() => chartMap)
+  d3.select('#chart_3').append(() => chartMap3)
 })
 
 
