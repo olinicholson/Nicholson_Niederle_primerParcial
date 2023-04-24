@@ -2,30 +2,42 @@ d3.dsv(";",'../datos/147_vehiculos_mal_estacionados_aux3.csv', d3.autoType).then
     console.log(data)
     // filtramos los barrios necesarios
     let data_aux = data.filter( item => 
-      item.domicilio_barrio == 'VILLA SOLDATI' || 
       item.domicilio_barrio == 'PALERMO' )
     let chart4 = Plot.plot({
       marks: [
-        Plot.barY(data_aux, 
-          Plot.groupX({ 
-            y:"count" }, 
+        Plot.barX(data_aux, 
+          Plot.groupY({ 
+            x:"count" }, 
           { 
-            x: "subcategoria", 
-            fill: "domicilio_barrio",
-            fillOpacity: 0.5 // Agregar fillOpacity para superponer valores de fill
+            y: "subcategoria", 
+            fill: "genero"
+            /*function(d){
+                if (d.genero=="mujer"){
+                    return color; 
+                }
+                else  if (d.genero=="null"){
+                    return color; 
+                }
+                if (d.genero=="hombre"){
+                    return color; 
+                }
+            }*/
+
         }) ),
         ],
-        x: {
-          label: "HORA",
-          line: true,
-        },
         y: {
+          line: true,
+          tickFormat: d => d.toLowerCase().replace(/\b\w/g, l => l.toUpperCase()),
+    
+        },
+        x: {
           label: "CANTIDAD DE DENUNCIAS",
           line: true,
         },
         color: {
           legend: true,
         },
+        marginLeft: 150,
     
     })
     d3.select('#chart_4').append(() => chart4)
