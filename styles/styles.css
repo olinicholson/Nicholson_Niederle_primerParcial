@@ -74,7 +74,12 @@ p{
   
   footer {
     background-color: #212529; /* change the background color */
-    color: #fdd306; /* change the font color */
+    color: #fdd306; 
+    text-align: center;
+  }
+
+  a{
+    color: #fdd306;
   }
   
   footer p {
