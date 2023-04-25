@@ -35,7 +35,6 @@ Promise.all([mapa3Fetch, dataFetch3]).then(([barrios, data]) => {
         stroke: 'gray',
         //title: d => `${d.properties.BARRIO}\n${d.properties.DENUNCIAS} denuncias`,
       }),
-      Plot.frame(),
       // Plot.dot(data_aux, {
       //   x: 'lon',
       //   y: 'lat',

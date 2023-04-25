@@ -22,8 +22,8 @@ d3.dsv(";",'../datos/147_vehiculos_mal_estacionados_aux3.csv', d3.autoType).then
                     return color; 
                 }
             }*/
-
         }) ),
+        
         ],
         y: {
           line: true,
@@ -34,8 +34,10 @@ d3.dsv(";",'../datos/147_vehiculos_mal_estacionados_aux3.csv', d3.autoType).then
           label: "CANTIDAD DE DENUNCIAS",
           line: true,
         },
+        
         color: {
           legend: true,
+          
         },
         marginLeft: 150,
     
