@@ -25,16 +25,15 @@ d3.dsv(";",'../datos/147_vehiculos_mal_estacionados_aux3.csv', d3.autoType).then
      
       x: {
         label: "HORA",
-        line: true,
-      
-      },
-        
+        line: true,},
       y: {
         label: "CANTIDAD DE DENUNCIAS",
         line: true,
-        domain: [0,250],},
+        domain: [0,250],
+        ticks:d3.scaleLinear().domain([0,250]).ticks(6),},
       color: {
         legend: true,
+        scheme: 'ylorbr',
       },
 
   })

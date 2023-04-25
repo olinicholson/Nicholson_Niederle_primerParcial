@@ -18,27 +18,24 @@ d3.dsv(";",'../datos/147_vehiculos_mal_estacionados_aux3.csv', d3.autoType).then
             y: "subcategoria", 
             fill: "estado_del_contacto"
         }) ),
-      ],
-      y: {
-        line: true,
-        tickFormat: d => d.toLowerCase().replace(/\b\w/g, l => l.toUpperCase()),
-      },
-      x: {
-        label: "CANTIDAD DE DENUNCIAS",
-        line: true,
-        domain: [0,1000],
-      },
-      color: {
-        legend: true,
-      },
-      marginLeft: 150,
-    });
+        
+        ],
+        y: {
+          line: true,
+          tickFormat: d => d.toLowerCase().replace(/\b\w/g, l => l.toUpperCase()),
     
-    d3.select('#chart_4')
-    .append('p') // Agregar un elemento de título h2 al elemento DOM que contiene el gráfico
-    .text('Palermo'); // Agregar texto al elemento de título
-   
-    
+        },
+        x: {
+          label: "CANTIDAD DE DENUNCIAS",
+          line: true,
+          domain: [0,1000],
+        },
+        color: {
+          legend: true,
+        },
+        marginLeft: 150,
+    })
+
     d3.select('#chart_4').append(() => chartPalermo)
     
 

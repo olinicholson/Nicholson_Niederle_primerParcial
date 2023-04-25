@@ -1,38 +1,51 @@
-d3.dsv(";",'../datos/147_vehiculos_mal_estacionados_aux3.csv', d3.autoType).then(data => {
-  console.log(data)
-  // filtramos los barrios necesarios
-  let data_palermo = data.filter( item => 
-    (item.domicilio_barrio == 'PALERMO') && (item.estado_del_contacto != null)&& (item.subcategoria != "DEFENSA AL CONSUMIDOR")&& (item.subcategoria != "OTROS"))
-  let data_soldati = data.filter( item => 
-    (item.domicilio_barrio == 'VILLA SOLDATI')&& (item.estado_del_contacto != null) )
-  let data_aux= data.filter( item => 
-    item.domicilio_barrio == 'PALERMO' ||'VILLA SOLDATI'  )
+const mapa3Fetch = d3.json('../datos/callesPalermo.geojson')
+const dataFetch3 = d3.dsv(';', '../datos/147_vehiculos_mal_estacionados_aux3.csv', d3.autoType)
 
-  let chartPalermo = Plot.plot({
-    marks: [
-      Plot.barX(data_palermo, 
-        Plot.groupY({ 
-          x:"count" }, 
-        { 
-          y: "subcategoria", 
-          fill: "estado_del_contacto"
-      }) ),
-      
-      ],
-      y: {
-        line: true,
-        tickFormat: d => d.toLowerCase().replace(/\b\w/g, l => l.toUpperCase()),
+Promise.all([mapa3Fetch, dataFetch3]).then(([barrios, data]) => {
   
-      },
-      x: {
-        label: "CANTIDAD DE DENUNCIAS",
-        line: true,
-        domain: [0,1000],
-      },
-      color: {
-        legend: true,
-      },
-      marginLeft: 150,
+  const reclamosPorBarrio = d3.group(data, d => d.domicilio_barrio) // crea un Map
+  console.log('reclamosPorBarrio', reclamosPorBarrio)
+  
+  /* A cada feature del mapa le agregamos la prop DENUNCIAS */
+  barrios.features.forEach(d => {
+    let nombreBarrio = d.properties.BARRIO
+    let cantReclamos =  reclamosPorBarrio.get(nombreBarrio).length
+    d.properties.DENUNCIAS = cantReclamos
+
+    console.log(nombreBarrio + ': ' + cantReclamos)
+  })  
+  //Filtro el barrio mas denso y las horas pico 
+  let data_aux = data.filter( item => 
+    item.hora_ingreso_aux == '12' || 
+    item.hora_ingreso_aux == '13' || 
+    item.hora_ingreso_aux == '14' || 
+    item.hora_ingreso_aux == '15' || 
+    item.hora_ingreso_aux == '16' || 
+    item.domicilio_barrio == 'PALERMO')
+
+  let chartMap3 = Plot.plot({
+    // https://github.com/observablehq/plot#projection-options
+    projection: {
+      type: 'mercator',
+      domain: barrios, // Objeto GeoJson a encuadrar
+    },
+    marks: [
+      Plot.density(data_aux, { x: 'lon', y: 'lat', fill: 'density',bandwidth: 15, thresholds: 30 }),
+      Plot.geo(barrios, {
+        stroke: 'gray',
+        //title: d => `${d.properties.BARRIO}\n${d.properties.DENUNCIAS} denuncias`,
+      }),
+      // Plot.dot(data_aux, {
+      //   x: 'lon',
+      //   y: 'lat',
+      //   r: 2,
+      //   stroke: 'none',
+      //   fill: 'red'
+      // }),
+    ],
+    color: {
+      scheme: 'ylorbr',
+    },
   })
 
   d3.select('#chart_3').append(() => chartPalermo)
