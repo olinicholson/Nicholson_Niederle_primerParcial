@@ -63,7 +63,8 @@ p{
   #chart_1 {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 350px;
+    margin-top: 50px;
+    margin-bottom: 250px;
 
   }
 
@@ -82,7 +83,7 @@ p{
     height: 300px;
     width: 100%;
     margin: auto;
-    margin-bottom: 350px;
+    margin-bottom: 250px;
   }
   
   footer {
