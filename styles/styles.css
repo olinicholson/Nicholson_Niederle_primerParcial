@@ -32,7 +32,8 @@ h7{
 }
 p{
     font-size: 1.2em;
-    margin-bottom: 30px;
+    margin-top: 10px;
+    
 }
 #chartMap_1 svg, #chart_2 svg, #chart_3 svg, #chart_4 svg{
     max-width: initial;
@@ -74,6 +75,7 @@ p{
   }
   #mapa2 {
     margin-bottom:350px;
+    margin-top: 50px;
   }
 
   .chart{
