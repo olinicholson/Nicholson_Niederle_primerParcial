@@ -1,4 +1,4 @@
-# Nicholson_Niederle N<sup>o</sup>2: Primer parcial
+# Nicholson_Niederle: Primer parcial
 
 ## Primer grafico: 
 Elegimos usar dos tipos de mapas el de densidad y el de coroplectico (cada barrio segun su cantidad) 
